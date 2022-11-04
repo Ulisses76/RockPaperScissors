@@ -9,42 +9,69 @@ function getComputerChoice (){
     }
 
 function playRound (playerSelection,computerSelection) {
+
     playerSelection=playerSelection.toLowerCase ();
     computerSelection = computerSelection.toLowerCase ();
     
-    if (playerSelection!="rock" && playerSelection !="paper" && playerSelection!= "scissor") {
-        return "Wrong entry"
-    } 
-
+    
     if (computerSelection === playerSelection) {
-        return "It's a draw !!"
+        return "draw"
     }
     
     if (computerSelection === "rock") {
         if(playerSelection === "paper") {
-            return "You win! paper beats rock!" 
+            return "win" 
         }
         if (playerSelection === "scissor") {
-            return "you lose! rock beats scissor"
+            return "lose"
         }
     }
     
     if (computerSelection === "paper") {
         if (playerSelection === "rock") {
-            return "You lose! paper beats rock"
+            return "lose"
         }
         if (playerSelection === "scissor") {
-            return "you win, scissor beats paper!"
+            return "win"
         }
     }
     if (playerSelection === "rock") {
-        return "You win! rock beats scissor"
-    } else {return "You lose! scissor beats paper"}
+        return "win"
+    } else {return "lose"}
 }
-
+function validBet() {
+    let playerSelection ="";
+    let checkValid = true;
+    
+    while (checkValid) {
+        playerSelection = prompt("What's your bet");
+        playerSelection = playerSelection.toLowerCase();
+        if (playerSelection==="rock" || playerSelection ==="paper" || playerSelection=== "scissor") {
+            checkValid = false;} else {alert ("wrong entry")}
+    }   
+    return playerSelection;
+}
 function game() {
-    for (let i = 0; i<5; i++) {
-        let playerSelection = prompt("What's your bet");
-        console.log (playRound (playerSelection,getComputerChoice()))
+    let scorePlayer=0;
+    let scoreComputer=0;
+      
+    while (scorePlayer<5 && scoreComputer <5){
+    let computerSelection = getComputerChoice();
+    let playerSelection =validBet();
+    let result=playRound (playerSelection,computerSelection);
+        if (result ==="win") {
+            scorePlayer++;
+            console.log (`You win!!! ${playerSelection} beats ${computerSelection} !!`);
+        } else if (result ==="lose") { 
+            scoreComputer++
+            console.log(`you lose!!! ${computerSelection} beats ${playerSelection} !!`)
+        }
+   
     }
+    if (scoreComputer===5) {
+        console.log("Computer wins!");
+    } else {console.log("You wins!!!!!")}
+
+    console.log(`score: You ${scorePlayer} x ${scoreComputer} Computer`)
+
 }
