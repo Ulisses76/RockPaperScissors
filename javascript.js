@@ -13,7 +13,7 @@ function playRound (playerSelection,computerSelection) {
     computerSelection = computerSelection.toLowerCase ();
     
     if (playerSelection!="rock" && playerSelection !="paper" && playerSelection!= "scissor") {
-        return "entrada inválida"
+        return "Wrong entry"
     } 
 
     if (computerSelection === playerSelection) {
@@ -22,7 +22,7 @@ function playRound (playerSelection,computerSelection) {
     
     if (computerSelection === "rock") {
         if(playerSelection === "paper") {
-            return "You win!, paper beats rock!" 
+            return "You win! paper beats rock!" 
         }
         if (playerSelection === "scissor") {
             return "you lose! rock beats scissor"
