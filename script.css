@@ -1,0 +1,58 @@
+body {
+  height: 1vh;
+  font-family: sans-serif, 'Times New Roman', Times, serif;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20vmax;
+  }
+
+  .container button {
+    background-color: lightcoral;
+    color: aliceblue;
+    font-size: 2em;
+    margin: 2em 2em 1em;
+    padding: 10px 30px;
+    font-weight: 700;
+    border-radius: 10px;
+    border: solid 5px rgb(177, 166, 166);
+  }
+  .score {
+    display:flex;
+  }
+  .score button,.score span{
+    
+    justify-content: center;
+    border: solid 5px rgb(177, 166, 166);
+    font-size: 3em;
+    font-weight: 700;
+    background-color: aliceblue;
+    color: lightcoral;
+    border-radius: 10px;
+    margin-left: 1em;
+    margin-top: 1em;
+  }
+#results {
+  margin-left: 30vmax;
+  margin-top: 2em;
+  font-size: 2.3em;
+  color: darkorange;
+}
+.computer {
+  font-size: 2em;
+  font-weight: 400;
+  margin-left: 30vmax;
+  
+}
+#computerChoice {
+  color: rgb(66, 194, 23);
+  font-size: 2.1em;
+  border: solid 5px yellow;
+  border-radius: 10px;
+}
+#results {
+
+}

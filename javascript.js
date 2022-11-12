@@ -10,8 +10,8 @@ function getComputerChoice (){
 
 function playRound (playerSelection,computerSelection) {
 
-    playerSelection=playerSelection.toLowerCase ();
-    computerSelection = computerSelection.toLowerCase ();
+    playerSelection=playerSelection.toLowerCase();
+    computerSelection = computerSelection.toLowerCase();
     
     
     if (computerSelection === playerSelection) {
@@ -26,7 +26,6 @@ function playRound (playerSelection,computerSelection) {
             return "lose"
         }
     }
-    
     if (computerSelection === "paper") {
         if (playerSelection === "rock") {
             return "lose"
@@ -39,6 +38,7 @@ function playRound (playerSelection,computerSelection) {
         return "win"
     } else {return "lose"}
 }
+
 function validBet() {
     let playerSelection ="";
     let checkValid = true;
@@ -46,32 +46,80 @@ function validBet() {
     while (checkValid) {
         playerSelection = prompt("What's your bet");
         playerSelection = playerSelection.toLowerCase();
-        if (playerSelection==="rock" || playerSelection ==="paper" || playerSelection=== "scissor") {
+        if (playerSelection==="rock" || playerSelection ==="paper" ||
+            playerSelection=== "scissor") {
             checkValid = false;} else {alert ("wrong entry")}
     }   
     return playerSelection;
 }
-function game() {
-    let scorePlayer=0;
-    let scoreComputer=0;
-      
-    while (scorePlayer<5 && scoreComputer <5){
-    let computerSelection = getComputerChoice();
-    let playerSelection =validBet();
-    let result=playRound (playerSelection,computerSelection);
-        if (result ==="win") {
-            scorePlayer++;
-            console.log (`You win!!! ${playerSelection} beats ${computerSelection} !!`);
-        } else if (result ==="lose") { 
-            scoreComputer++
-            console.log(`you lose!!! ${computerSelection} beats ${playerSelection} !!`)
-        }
-   
-    }
-    if (scoreComputer===5) {
-        console.log("Computer wins!");
-    } else {console.log("You wins!!!!!")}
 
-    console.log(`score: You ${scorePlayer} x ${scoreComputer} Computer`)
+function venceu (aposta,computerChoise) {
+    console.log('VENCEU')
+    document.getElementById("results").textContent = "You WIN !!!"+
+    "   "+aposta + "   beats   " + computerChoise;
 
 }
+function perdeu (aposta,computerChoise) {
+   
+    document.getElementById("results").textContent = "You LOSE !!!"+
+    "   "+computerChoise + "   beats   " + aposta;
+}
+function draw() {
+    document.getElementById("results").textContent = 
+"It's a DRAW !!!";}
+
+function lose(){
+document.getElementById('results').textContent = "YOU LOSE THE ROUND !!!"
+};
+
+function win (){
+    document.getElementById('results').textContent = "YOU WIN THE ROUND !!!"
+};
+
+const beta = document.querySelectorAll('.container button');
+let scorePlayer=0;
+let scoreComputer=0;
+
+  
+beta.forEach(buton => buton.addEventListener('click',function (a) {
+    aposta = a.target.classList.value;   
+    const computerChoice = getComputerChoice();
+    document.getElementById("computerChoice").textContent = computerChoice
+    const result=playRound (aposta,computerChoice);  
+    if (result === "win") {
+        scorePlayer++;
+        venceu(aposta,computerChoice);
+    }
+    if (result === "lose") {
+        scoreComputer++;
+        perdeu(aposta,computerChoice);
+    }
+    if (result ==="draw") {
+        draw();
+    }
+    
+    document.getElementById('scorePlayer').textContent = scorePlayer;
+    document.getElementById('scoreComputer').textContent = scoreComputer;
+    
+    if (scorePlayer===5 || scoreComputer ===5) {
+        if (scoreComputer===5) {
+            lose();
+        }
+        if (scorePlayer===5) {
+            win ();
+        }
+        scoreComputer=0;
+        scorePlayer=0;
+
+    }
+    
+}));
+document.getElementById('scorePlayer').textContent = scorePlayer;
+document.getElementById('scoreComputer').textContent = scoreComputer;
+
+
+
+
+
+
+       
