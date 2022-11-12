@@ -1,13 +1,20 @@
 body {
   height: 1vh;
   font-family: sans-serif, 'Times New Roman', Times, serif;
+  background-color: darkgray;
 }
-
+h1 {
+  border: solid 2px black;
+  text-align: center;
+  background-color: azure;
+  padding: 10px;
+}
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 20vmax;
+  clear: left;
   }
 
   .container button {
@@ -21,25 +28,42 @@ body {
     border: solid 5px rgb(177, 166, 166);
   }
   .score {
-    display:flex;
+  float: left;
+  margin-top: 1em;
+  margin-left: 10vw;
   }
-  .score button,.score span{
+  .score span {
     
-    justify-content: center;
+    background-color: cyan;
+    font-size: 2.2em;
+    font-weight: 400;
+    padding: 10px;
+  }
+  span#scorePlayer,span#scoreComputer {
+    background-color: aliceblue;
+    padding: 5px;
+    font-size: 2em;
+  }
+  .score button{
+    
+  
     border: solid 5px rgb(177, 166, 166);
     font-size: 3em;
     font-weight: 700;
     background-color: aliceblue;
     color: lightcoral;
     border-radius: 10px;
-    margin-left: 1em;
-    margin-top: 1em;
+   
+    
+    padding: 10px;
   }
 #results {
   margin-left: 30vmax;
   margin-top: 2em;
   font-size: 2.3em;
   color: darkorange;
+  background-color: azure;
+  float: left;
 }
 .computer {
   font-size: 2em;
@@ -48,9 +72,10 @@ body {
   
 }
 #computerChoice {
-  color: rgb(66, 194, 23);
-  font-size: 2.1em;
-  border: solid 5px yellow;
+  color: black;
+  background-color: yellow;
+  font-size: 1.2em;
+  padding: 0.3em;
   border-radius: 10px;
 }
 #results {
